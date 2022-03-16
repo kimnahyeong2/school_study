@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>회원가입하기</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        tr, th, td {
+            border: 2px rgb(235, 175, 222) solid;
+        }
+        /*
+        #form1 {}
+        id값은 #
+
+        .in {}
+        class는 .
+        */
+    </style>
+    <script>
+        let index = 1; //var대신 let으로 변수선언(let은 재선언 안됨)
+        let AllMember = new Array();
+
+        function Member(id, na, img){ //생성자 함수
+            this.id = id;
+            this.name = na;
+            this.image = img;
+        } //let a = new Member(1, 'jeong', 'koala.jpg');
+        Member.prototype.toString = function() {
+            return "회원정보 : " + this.id + " " + this.name + " " + this.image;
+        };
+        // toString 함수가 없을 경우 document.write(a); => Object
+        // toString 함수가 있을 경우 document.write(a); => toString => 회원정보 : 1 jeong koala.jpg
+
+        let registration = function(){
+            // 입력 정보 가져오기
+            let text = document.getElementById("name");
+            let name = text.value;
+            let img = document.getElementById("sel").value;
+            let num = new Date().getFullYear().toString() + index;
+            index++;
+
+            // Member 객체 생성하기
+            // img <= koala  ===> images/koala.jpg
+            img = "images/"+img+".jpg";
+            let t = new Member(num, name, img);
+
+            // AllMember에 저장하기
+            AllMember.push(t);
+
+            // 화면(표)에 보이기
+            // <tr><td>num</td><td>name</td><td>img</td></tr>
+            let tr = document.createElement("tr"); // <tr></tr>
+            let parent = document.getElementById("tbody");
+            let image = "<img src = '" + img + "' width=100>";
+            tr.innerHTML = "<td>" + num + "</td><td>" + name + "</td><td>" + image + "</td>";
+            parent.appendChild(tr);
+
+        };
+
+        let printAll = () => {
+
+        };
+    </script>
+</head>
+
+<body>
+    <script>
+        // function() {} ===> ()    () => {}
+        // window.onload = () => {}; 이렇게도 사용 가능
+        window.onload = function(){
+            let regBtn = document.getElementById("reg");
+            regBtn.addEventListener("click", registration);
+
+            let printBtn = document.getElementById("print");
+            printBtn.addEventListener("click", printAll)
+        };
+        /* 
+        function test(function(){};){};
+        function test(() => {};){};
+        */
+    </script>
+
+    <h3>가입하기</h3>
+    <form id="form1" method="GET">
+        이름 : <input class="in" type="text" id="name"><br>
+        대표사진 : 
+        <select name="" id="sel">
+            <option value="Desert">Desert</option>
+            <option value="Koala">Koala</option>
+            <option value="Penguins">Penguins</option>
+            <option value="Lighthouse">Lighthouse</option>
+            <option value="Tulips">Tulips</option>
+            <option value="Jellyfish">Jellyfish</option>
+        </select>
+        <br>
+        <input type="button" value="가입하기" id="reg">
+    </form>
+    <hr>
+    <h3>회원 목록</h3>
+    <table id="tab">
+        <thead>
+        <tr>
+            <td>회원번호</td>
+            <td>이름</td>
+            <td>이미지</td>
+        </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    <hr>
+    <input type="button" value="회원목록 출력하기" id="print">
+</body>
+</html>
