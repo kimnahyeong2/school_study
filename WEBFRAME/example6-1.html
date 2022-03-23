@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQuery Selector</title>
+    <script src = "http://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        //$("h2").css("color", "red");
+    </script>
+</head>
+<body>
+    <script>
+        /*
+        window.onload = function(){
+
+        }; //자바스크립트 시작하는 위치
+
+        $(document).ready( function(){
+
+        }); // 제이쿼리 시작하는 위치 (초창기)
+
+        $( function(){
+
+        }); // 제이쿼리 시작하는 위치 (간편하게)
+        */
+        $(function(){
+            $("h2").css("color", "blue");
+            $("#list3").css("background-color", "yellow");
+            $("#thi #list3").css("background-color", "pink");
+            $(".st1").css("background-color", "green");
+
+            //$("#list2").prev().css("border", "1px solid blue")
+            //$("#list3").nextAll().css("border", "1px solid blue")
+            $("#list2").siblings().css("border", "1px solid blue")
+
+            $("#sec").children().css("border", "1px dashed red");
+
+            $("#fir li:odd").css("color", "yellowgreen");
+            $("#fir li:gt(3)").text("3보다 커");
+            $("#fir li:lt(3)").html("<em>3보다 작아</em>");
+            $("#fir li:eq(3)").html("<strong>나는 3</strong>");
+
+            $("#fir li").even().css("color", "purple");
+        });
+    </script>
+    <h2>JQuery Selector Example</h2>
+    <h2 id="menu">lunch</h2>
+    <ul id="fir">
+        <li id="list1">메뉴 1</li>
+        <li id="list2">메뉴 2</li>
+        <li id="list3">메뉴 3</li>
+        <li id="list4">메뉴 4</li>
+        <li id="list5">메뉴 5</li>
+    </ul>
+    <ul id="sec">
+        <li class="st1">한식</li>
+        <li class="st2">일식</li>
+        <li class="st3">중식</li>
+    </ul>
+    <ul id="thi">
+        <div>
+        <li id="list1">메뉴 1</li>
+        <li id="list2">메뉴 2</li>
+        <li id="list3">메뉴 3</li>
+        <li id="list4">메뉴 4</li>
+        <li id="list5">메뉴 5</li>
+        </div>
+    </ul>
+</body>
+</html>

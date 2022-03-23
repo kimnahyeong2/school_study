@@ -22,6 +22,9 @@
         class는 .
         */
     </style>
+    <script src="js/jquery-3.6.0.js"></script>
+    <script src="http://code.jquery.com/jquery-3.6.0.js"></script>
+
     <script>
         let index = 1; //var대신 let으로 변수선언(let은 재선언 안됨)
         let AllMember = new Array();
@@ -64,7 +67,14 @@
         };
 
         let printAll = () => {
-
+            let view = document.getElementById("view");
+            if(AllMember.length > 0){
+                view.style.visibility = "visible";
+            }
+            view.innerHTML = "";
+            for(let i = 0; i < AllMember.length; i++){
+                view.innerHTML += AllMember[i] + "<br>";
+            }
         };
     </script>
 </head>
@@ -117,5 +127,7 @@
     </table>
     <hr>
     <input type="button" value="회원목록 출력하기" id="print">
+    <div id="view" style="border:1px solid red; visibility: hidden;">
+    </div>
 </body>
 </html>
