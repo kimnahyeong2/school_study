@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">    
+    <title>title</title>
+    <style>
+    </style>
+    <script src = "http://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            // array = [1, 2, 3 "hello", {object}]
+            // {index : value, index : value, ....}
+            let arr1 = [{
+                "area":"서울",
+                "name":"무대리"
+            },{
+                "area":"부산",
+                "name":"홍과장"
+            },{
+                "area":"대전",
+                "name":"박사장"
+            },{
+                "area":"서울",
+                "name":"빅마마"
+            }];
+            // map(function(object, index)); each(function(index, object));
+            let arr2 = $.map(arr1, function(a, b){
+                if(a.area == "서울"){
+                    return a;
+                }
+            });
+            console.log(arr2);
+            console.log("=== first End ===");
+
+            let arr3 = $.grep(arr1, function(a, b){
+                return true;
+            });
+            console.log(arr3);
+            console.log("=== Second End ===");
+        });
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
