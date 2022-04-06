@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6주차-3</title>
+    <script src = "http://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $(".sec1 .ct1").before("<p class='new'>inserted</p>");
+            $(".sec1 .ct1").after("<p class='new'>inserted</p>");
+            $("<p class='new2'>new item</p>").insertAfter(".sec1 .ct2");
+
+            $(".sec2 .ct1").append("<p class='new'>inserted</p>");
+            $(".sec3 .ct1").prepend("<p class='new'>inserted</p>");
+
+            $("<h2>section title</h2>").prependTo("section");
+
+            let $clone = $(".sec1").clone();
+            $(".sec5").after($clone);
+            $(".sec1").empty();
+            $(".sec2").remove();
+            
+            $(".sec3 .st1").unwrap();
+            $(".ct4").wrap("<strong />");
+            $(".ct3").wrapInner("<strong />")
+
+            $("<li>changed item</li>").replaceAll("div");
+
+        });
+    </script>
+    <style>
+        section{
+            margin: 10px;
+            border: 5px solid rgb(255, 170, 170);
+        }
+        .new{
+            background-color: rgb(226, 196, 255);
+        }
+        .new2{
+            background-color: rgb(253, 238, 186);
+        }
+    </style>
+</head>
+<body>
+    <section class="sec1">
+        <div class="ct1">content1</div>
+        <div class="ct2">content2</div>
+        <div class="ct3">content3</div>
+        <div class="ct4">content4</div>
+    </section>
+    <section class="sec2">
+        <div class="ct1">content1</div>
+        <div class="ct2">content2</div>
+        <div class="ct3">content3</div>
+        <div class="ct4">content4</div>
+    </section>
+    <section class="sec3">
+        <div class="ct1">content1</div>
+        <div class="ct2">content2</div>
+        <div class="ct3">content3</div>
+        <div class="ct4">content4</div>
+    </section>
+    <section class="sec4">
+        <div class="ct1">content1</div>
+        <div class="ct2">content2</div>
+        <div class="ct3">content3</div>
+        <div class="ct4">content4</div>
+    </section>
+    <section class="sec5">
+        <div class="ct1">content1</div>
+        <div class="ct2">content2</div>
+        <div class="ct3">content3</div>
+        <div class="ct4">content4</div>
+    </section>
+</body>
+</html>

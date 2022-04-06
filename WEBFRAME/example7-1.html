@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6주차-4</title>
+    <script src = "http://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(function(){
+            $("#bt1").click(function(){
+                $(".sec1 div").css({
+                    "color":"red"
+                });
+            });
+            $("#bt2").mouseover(function(){
+                $(".sec2").css("background-color", "skyblue");
+            });
+            $("#bt3").on({
+                "click" : function(){
+                    $(".sec3").css("color", "yellow")
+                },
+                "mouseover focus" : function(){
+                    $(".sec3").css({
+                        "background-color":"pink",
+                        "border":"5px dotted red"
+                    })
+                }
+            });
+        });
+    </script>
+    <style>
+        section{border: 5px solid rgb(173, 139, 253); margin-top: 10px;}
+    </style>
+
+</head>
+<body>
+    <button id="bt1">event button1</button>
+    <button id="bt2">event button2</button>
+    <button id="bt3">event button3</button>
+
+    <section class="sec1">
+        <div class="dv1">Inner Contents</div>
+        <div class="dv2">Inner Contents</div>
+        <div class="dv3">Inner Contents</div>
+    </section>
+    <section class="sec2">
+        <div class="dv1">Inner Contents</div>
+        <div class="dv2">Inner Contents</div>
+        <div class="dv3">Inner Contents</div>
+    </section>
+    <section class="sec3">
+        <div class="dv1">Inner Contents</div>
+        <div class="dv2">Inner Contents</div>
+        <div class="dv3">Inner Contents</div>
+    </section>
+    <hr>
+    <script>
+        $(function(){
+            $("#fm").submit(function(e){
+                e.preventDefault();
+            });
+            $("#bt4").click(function(){
+                let bcolor = $("#color").val();
+                $("body").css("background-color", bcolor);
+            });
+            $("#bt5").click(function(){
+                let value = $("#id").val();
+                $("#list").append("<option value='"+ value +"'>"+ value +"</option>");
+            });
+
+            $("#bt1").click();
+            $("#bt3").trigger("mouseover");
+            $("#bt3").off("click");
+
+        });
+    </script>
+    <form id="fm" method="GET" action="">
+        배경색 선택 : <input id="color" type="color" value="#FFFF00">
+        <button id="bt4">적용하기</button>
+        <br>
+        아이디 추가 : <input id="id" type="text">
+        <button id="bt5">추가하기</button>
+        <br>
+        <h3>리스트</h3>
+        <select id="list">
+            <!-- <option value="test">test</option> -->
+        </select>
+    </form>
+</body>
+</html>
