@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7주차</title>
+    <script src = "http://code.jquery.com/jquery-3.6.0.js"></script>
+    <style>
+
+    </style>
+    <script>
+        $(document).ready(function(){
+            let w = $("#image").width();
+            $("#out").text(w);
+        }); // $(function(){});
+
+        $(function(){
+            $(window).on("load", function(){
+                let w2 = $("#image").width();
+                $("#out2").text(w2);
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            $(".sec1 li").mouseover(function(){
+                $(".sec1").css({
+                    "background-color":"#FEFFB7"
+                });
+            });
+            $(".sec1").mouseout(function(){
+                $(".sec1").css("background-color","white");
+            });
+
+            //$().on("hover", function(){}, function(){});
+            $(".sec2").hover(function(){
+                $(this).css("background-color", "lightblue");
+            }, function(){
+                $(this).css({"background-color":"white"});
+            });
+
+            $(".sec3 li").mouseenter(function(){
+                $(".sec3").css({
+                    "background-color":"pink"
+                });
+            });
+            $(".sec3").mouseleave(function(){
+                $(".sec3").css("background-color","white");
+            });
+        });
+    </script>
+    <style>
+        section{
+            height: 300px;
+            border: 3px solid rgb(255, 117, 179);
+            margin: 10px;
+        }
+    </style>
+    <style>
+        .gnb li {
+            list-style-type:none;
+            display: inline-block;
+            width:150px; height:20px;
+            border: 3px solid yellowgreen;
+        }
+        .gnb .submenu1, .gnb .submenu2, .gnb .submenu3{
+            width: 150px;
+            border: 3px dashed green;
+            height: 250px;
+            display: inline-block;
+            visibility:hidden;
+        }
+    </style>
+    <script>
+        $(function(){
+            $(".submenu1 li").each(function(i, o){
+                console.log("index : " + i);
+                if($(o).index() == 1){
+                    $(o).css("color", "red");
+                }
+            });
+
+            $(".menu li").each(function(i, o){
+                let str = ".submenu";
+                str += (i + 1);
+                $(o).on("hover", function(){
+                    $(this).css("background-color", "yellowgreen");
+                    $(str).css("visibility", "visible");
+                }, function(){
+                    $(this).css("background-color", "white");
+                    $(str).css("visibility", "hidden");
+                });
+            });
+
+            /*
+            $(".menu li:eq(0)").hover(function(){
+                $(this).css("background-color", "yellowgreen");
+                $(".submenu1").css("visibility", "visible");
+            }, function(){
+                $(this).css("background-color", "white");
+                $(".submenu1").css("visibility", "hidden");
+            });
+            
+            $(".menu li:eq(1)").hover(function(){
+                $(this).css("background-color", "yellowgreen");
+                $(".submenu2").css("visibility", "visible");
+            }, function(){
+                $(this).css("background-color", "white");
+                $(".submenu2").css("visibility", "hidden");
+            });
+            $(".menu li:eq(2)").hover(function(){
+                $(this).css("background-color", "yellowgreen");
+                $(".submenu3").css("visibility", "visible");
+            }, function(){
+                $(this).css("background-color", "white");
+                $(".submenu3").css("visibility", "hidden");
+            });
+           */
+          
+            $(".submenu1").hover(function(){
+                $(this).css("visibility", "visible");
+            }, function(){
+                $(this).css("visibility", "hidden");
+            });
+            
+            $(".submenu2").hover(function(){
+                $(this).css("visibility", "visible");
+            }, function(){
+                $(this).css("visibility", "hidden");
+            });
+            $(".submenu3").hover(function(){
+                $(this).css("visibility", "visible");
+            }, function(){
+                $(this).css("visibility", "hidden");
+            });
+            
+        });
+    </script>
+</head>
+<body>
+    <h2>menu submenu test</h2>
+    <section class="gnb">
+        <div class="menu">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </div>
+        <div class="submenu1">
+            <li>submenu1</li>
+            <li>submenu2</li>
+            <li>submenu3</li>
+            <li>submenu4</li>
+            <li>submenu5</li>
+        </div>
+        <div class="submenu2">
+            <li>submenu1</li>
+            <li>submenu2</li>
+            <li>submenu3</li>
+            <li>submenu4</li>
+            <li>submenu5</li>
+        </div>
+        <div class="submenu3">
+            <li>submenu1</li>
+            <li>submenu2</li>
+            <li>submenu3</li>
+            <li>submenu4</li>
+            <li>submenu5</li>
+        </div>
+    </section>
+
+
+    <section class="sec1">
+        <div class="dv1">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </div>
+    </section>
+    <section class="sec2">
+        <div class="dv2">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </div>
+    </section>
+    <section class="sec3">
+        <div class="dv3">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </div>
+    </section>
+    <section class="sec4">
+        <div class="dv4">
+            <li>menu1</li>
+            <li>menu2</li>
+            <li>menu3</li>
+        </div>
+    </section>
+
+
+    <h2>data</h2>
+    <div id="out"></div>
+    <div id="out2"></div>
+
+    <h2> dummy image </h2>
+    <img src="https://dummyimage.com/300x200/abd1d6/e3ab56&text=dc">
+    <hr>
+    <h2> LoremFlickr </h2>
+    <img id="image" src="https://loremflickr.com/320/240/dog">
+    
+</body>
+</html>
